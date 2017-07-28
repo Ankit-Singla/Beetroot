@@ -1,0 +1,8 @@
+
+<% if @count == "1" %>
+	document.getElementById('outer_main').innerHTML=("<%= j(render 'menu') %>");
+<% elsif @count == "2" %>
+	document.getElementById('outer_main').innerHTML=("<%= j(render 'cuisines') %>");
+<% else %>
+	document.getElementById('outer_main').innerHTML=("<%= j(render 'photos') %>");
+<% end %>

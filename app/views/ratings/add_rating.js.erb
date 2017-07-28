@@ -1,0 +1,10 @@
+
+var parent = $('#star_container');
+var upto = <%= @count %>;
+for (var i = 0; i < parent.children.length; i++){
+	if(i < upto){
+		parent.children[i].html("<i class=\"fa fa-star\" aria-hidden=\"true\"></i>");
+	}else{
+		parent.children[i].html("<i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>");
+	}
+}

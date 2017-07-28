@@ -1,0 +1,12 @@
+<% if @is_beenhere %>
+$('#beenhere_<%= @restaurant.id%>').html("<i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i>");
+
+noty({text: 'Beenhere Added', type: 'alert'});
+
+<% else %>
+
+$('#beenhere_<%= @restaurant.id%>').html("<i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i>");
+
+noty({text: 'Beenhere Removed', type: 'alert'});
+
+<% end %>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	<!-- how to insert an image in the title bar -->
+	<img url="https://www.dropbox.com/home?preview=beetroot1.jpeg">
+		Restaurant Specific Page
+	</title>
+	<script src="https://use.fontawesome.com/9bc23640e2.js"></script>
+</head>
+<body>
+
+<p id="notice"><%= notice %></p>
+
+<div id="restaurant">
+
+<header id="outer_header">
+	<div><i class="fa fa-phone" aria-hidden="true"></i></div>
+	<div><i class="fa fa-star-o" aria-hidden="true"></i></div>
+	<div>
+		<button>City</button>
+		<div>Search</div>
+	</div>
+	<div><i class="fa fa-user" aria-hidden="true"></i></div>
+</header>
+
+<main id="outer_main">
+	<section id="image" class="outer_section">
+		<div>
+			<div id="pic">
+
+			<section id="rating_info">
+				<p>Rated</p>
+				<label><%= @restaurant.average_rating%>/5.0</label>
+				<div>based on 337
+					 Ratings
+				</div>
+			</section>
+
+			<section>
+				<div></div>
+				<div></div>
+				<div></div>
+			</section>
+
+			</div>
+		</div>
+	</section>
+
+	<section id="info" class="outer_section">
+		<p><%= @restaurant.name %></p>
+
+		<div>
+			<span><%= @restaurant.locality %></span>
+			<span>~ </span>
+			<span>Main Categories, that Restaurant comes into</span>
+		</div>	
+
+		<div id="icons_bar">
+			<span>
+			<%=  link_to raw(@restaurant.bookmark_icon(current_user.id)), url_for(controller: 'bookmarks', action: 'toggle_bookmark', restaurant: @restaurant), method: :post,id: "bookmark_#{@restaurant.id}" ,remote: true %>
+			</span>
+			<span>
+			<%=  link_to raw(@restaurant.beenhere_icon(current_user.id)), url_for(controller: 'been_heres', action: 'toggle_beenhere', restaurant: @restaurant), method: :post,id: "beenhere_#{@restaurant.id}" ,remote: true %>
+			</span>
+			<span id="star">
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<div id="divy">
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+				</div>	
+				<aside id="clear">clear</aside>
+			</span>
+			<span><i class="fa fa-check" aria-hidden="true"></i></span>
+			<span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+		</div>	
+
+		<label>discounts available</label>
+	</section>
+
+	<section id="navigation" class="outer_section">
+		<nav id="inner_header">
+			<div>Overview</div>
+			<div>Menu</div>
+			<div>Cuisines</div>
+			<div>Photos</div>
+			<div>Reviews</div>
+		</nav>
+	</section>	
+
+<section id="after_nav">
+	<section id="overview" class="outer_section"></section>
+
+	<section id="menu" class="outer_section">
+		<p><%= link_to "Menu",url_for(controller: 'restaurants', action: 'ankiting', which: "1"), method: :get %></p>
+		<div>
+			<span>
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</span>
+
+			<span id="menu_images">
+				<main>
+				</main>  
+				  <!-- <div>
+				    <img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+				    <p>Description 1</p>
+				  </div>
+				  <div>
+				    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWRxL_6K5yRV2c5o5LOrIj7MJQI2OU165ZFAOI8pHGGFr9SRrxSA6NRJM">
+				    <p>Description 2</p>
+				  </div>
+				  <div>
+				    <img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+				    <p>Description 3</p>
+				  </div>
+				  <div>
+				    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWRxL_6K5yRV2c5o5LOrIj7MJQI2OU165ZFAOI8pHGGFr9SRrxSA6NRJM">
+				    <p>Description 4</p>
+				  </div>
+				  <div>
+				    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWRxL_6K5yRV2c5o5LOrIj7MJQI2OU165ZFAOI8pHGGFr9SRrxSA6NRJM">
+				    <p>Description 5</p>
+				  </div>
+ -->			</span>
+
+			<span>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</span>
+		</div>
+	</section>
+
+	<section id="cuisines" class="outer_section">
+		<p><%= link_to "Cuisines",url_for(controller: 'restaurants', action: 'ankiting', which: "2", id: @restaurant.id), method: :get %></p>
+		<div>
+			<span>
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</span>
+
+			<main>
+				<span class="cuisine_images">
+					<img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+					<img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+					<img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+				</span>
+				<br>
+				<span class="cuisine_images">
+					<img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+					<img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+					<img src="http://goodfoodhelp.com/images/clients/logo-6.png">
+				</span>
+			</main>
+
+			<span>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</span>
+		</div>	
+	</section>
+
+	<section id="photos" class="outer_section">
+		<p><%= link_to "Photos",url_for(controller: 'restaurants', action: 'ankiting', which: "3"), method: :get %></p>
+		<div id="photo_images">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+		</div>
+		<span id="one">See all 337 photos</span>
+		<span id="two"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>		
+	</section>
+
+	<section id="reviews" class="outer_section">
+		<section id="write">
+			<p>Write a Review</p>
+			<div>
+				<input type="text" name="review">
+				<br>
+				<button id="submit_review">Add Review</button>
+			</div>
+		</section>
+
+		<main>
+			<section>
+				<div id="upper">
+					<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+					</div>
+					<div id="inner_upper">
+						<span id="one_name">User Name</span>
+						<span id="two_review">236 Reviews, 927 Followers</span>
+					</div>	
+					<span>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</span>
+				</div>
+
+				<div id="lower">
+					<div class="reviews_content">Text, the actual content of the review. At least a hundred
+							characters long.
+					</div>
+
+					<div class="inner_lower">
+						<div>
+							<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+							<span>27 Smiles</span>
+						</div>
+						
+						<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+						
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div id="upper">
+					<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+					</div>
+					<div id="inner_upper">
+						<span id="one_name">User Name</span>
+						<span id="two_review">236 Reviews, 927 Followers</span>
+					</div>	
+					<span>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</span>
+				</div>
+
+				<div id="lower">
+					<div class="reviews_content">Text, the actual content of the review. At least a hundred
+							characters long.
+					</div>
+
+					<div class="inner_lower">
+						<div>
+							<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+							<span>27 Smiles</span>
+						</div>
+						
+						<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+						
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div id="upper">
+					<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+					</div>
+					<div id="inner_upper">
+						<span id="one_name">User Name</span>
+						<span id="two_review">236 Reviews, 927 Followers</span>
+					</div>	
+					<span>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</span>
+				</div>
+
+				<div id="lower">
+					<div class="reviews_content">Text, the actual content of the review. At least a hundred
+							characters long.
+					</div>
+
+					<div class="inner_lower">
+						<div>
+							<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+							<span>27 Smiles</span>
+						</div>
+						
+						<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+						
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div id="upper">
+					<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+					</div>
+					<div id="inner_upper">
+						<span id="one_name">User Name</span>
+						<span id="two_review">236 Reviews, 927 Followers</span>
+					</div>	
+					<span>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star-o" aria-hidden="true"></i>
+					</span>
+				</div>
+
+				<div id="lower">
+					<div class="reviews_content">Text, the actual content of the review. At least a hundred
+							characters long.
+					</div>
+
+					<div class="inner_lower">
+						<div>
+							<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+							<span>27 Smiles</span>
+						</div>
+						
+						<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+						
+					</div>
+				</div>
+			</section>
+		</main>
+	</section>
+
+</section>	
+
+	<div id="false_info_check">
+		If you find any of the information given above incorrect or falseworthy,
+		let us know 'here'!
+	</div>
+
+</main>
+
+<aside id="outer_aside">
+	<section id="popular_places">
+		<p>Popular Around Here</p>
+		<main>
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+		</main>
+	</section>
+
+	<section id="popular_places">
+		<p>Similar Places</p>
+		<main>
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+
+			<div class="outer_place">
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>	
+
+				<div class="place">
+					<img src="http://lorempixel.com/output/abstract-q-c-284-120-8.jpg">
+					<p>Place Name</p>
+					<p>Locality</p>
+
+				</div>
+			</div>
+		</main>
+	</section>
+
+	<section id="popular_foodstars">
+		<p>Popular Foodstars</p>
+		<main>
+			<div class="user">
+				<!-- <div class="containerhash"> -->
+					<div class="userimage">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+					</div>
+					<div>
+						<div class="name">User Name</div>
+						<div class="otherinfo">43 Reviews, 173 Followers</div>
+					</div>
+				<!-- </div> -->
+
+				<div>
+					<button><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			</div>
+
+			<div class="user">
+				<div class="userimage">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+				</div>
+				<div>
+					<div class="name">User Name</div>
+					<div class="otherinfo">43 Reviews, 173 Followers</div>
+				</div>
+				<div>
+					<button><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			</div>
+
+			<div class="user">
+				<div class="userimage">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+				</div>
+				<div>
+					<div class="name">User Name</div>
+					<div class="otherinfo">43 Reviews, 173 Followers</div>
+				</div>
+				<div>
+					<button><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			</div>
+
+			<div class="user">
+				<div class="userimage">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+				</div>
+				<div>
+					<div class="name">User Name</div>
+					<div class="otherinfo">43 Reviews, 173 Followers</div>
+				</div>
+				<div>
+					<button><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			</div>
+
+			<div class="user">
+				<div class="userimage">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+				</div>
+				<div>
+					<div class="name">User Name</div>
+					<div class="otherinfo">43 Reviews, 173 Followers</div>
+				</div>
+				<div>
+					<button><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			</div>
+
+			<div class="user">
+				<div class="userimage">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+				</div>
+				<div>
+					<div class="name">User Name</div>
+					<div class="otherinfo">43 Reviews, 173 Followers</div>
+				</div>
+				<div>
+					<button><i class="fa fa-plus" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		</main>
+	</section>
+
+	<section id="events">
+		
+	</section>
+
+	<section id="custom_cakes">
+		
+	</section>
+</aside>
+
+</div>
+
+</body>
+</html>

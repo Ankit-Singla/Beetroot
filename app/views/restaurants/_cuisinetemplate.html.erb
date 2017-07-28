@@ -1,0 +1,305 @@
+<div id="provide_rating">
+	<div id="star_container">
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 1)), url_for(controller: "ratings", action: "add_rating", which: 1, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 2)), url_for(controller: "ratings", action: "add_rating", which: 2, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 3)), url_for(controller: "ratings", action: "add_rating", which: 3, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 4)), url_for(controller: "ratings", action: "add_rating", which: 4, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 5)), url_for(controller: "ratings", action: "add_rating", which: 5, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 6)), url_for(controller: "ratings", action: "add_rating", which: 6, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 7)), url_for(controller: "ratings", action: "add_rating", which: 7, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 8)), url_for(controller: "ratings", action: "add_rating", which: 8, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 9)), url_for(controller: "ratings", action: "add_rating", which: 9, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+		<p>
+			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 10)), url_for(controller: "ratings", action: "add_rating", which: 10, cuisine_id: cuisine), id: cuisine, method: :post %>
+		</p>
+	</div>
+	<div id="clear_rating">clear</div>
+</div>
+
+<header id="outside">
+			<span>Share Your Experience</span>
+			<div id="rateInRate">
+				<%= Restaurant.where(id: restaurant).first.rating_text(current_user.id, cuisine) %>
+			</div>
+			<div>Review</div>
+</header>
+
+
+
+<main>
+			<header id="inside">
+				<span><%= Cuisine.where(id: @cuisine).first.name %></span>
+				<section id="rating_info">
+					<p>Rated</p>
+					<label><%= Cuisine.where(id: @cuisine).first.average_rates %>/5.0</label>
+					<div>based on <%= Cuisine.where(id: @cuisine).first.num_rates %>
+						 Ratings
+					</div>
+				</section>
+			</header>
+
+			<section id="cuisine_name_menu">
+				<p>Cuisine Name Menu</p>
+				<div>
+					<img src="">
+				</div>
+				<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+			</section>
+
+			<section id="recommended_dishes">
+				<p>Recommended Dishes</p>
+				<nav>
+					<ul>
+						<li>Honey Chilli Potato</li>
+						<li>Chilli Paneer</li>
+					</ul>
+					<ul>
+						<li>Manchurian</li>
+						<li>Manchow Soup</li>
+					</ul>
+					<ul>
+						<li>Chinese Platter</li>
+						<li>Taste Of China</li>
+					</ul>
+				</nav>
+			</section>
+
+			<section id="reviews" class="outer_section">
+			<p>Reviews</p>
+
+				<section>
+					<div id="upper">
+						<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+						</div>
+						<div id="inner_upper">
+							<span id="one_name">User Name</span>
+							<span id="two_review">236 Reviews, 927 Followers</span>
+						</div>	
+						<span>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div id="lower">
+						<div class="reviews_content">Text, the actual content of the review. At least a hundred
+								characters long.
+						</div>
+
+						<div class="inner_lower">
+							<div>
+								<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+								<span>27 Smiles</span>
+							</div>
+							
+							<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+							
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div id="upper">
+						<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+						</div>
+						<div id="inner_upper">
+							<span id="one_name">User Name</span>
+							<span id="two_review">236 Reviews, 927 Followers</span>
+						</div>	
+						<span>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div id="lower">
+						<div class="reviews_content">Text, the actual content of the review. At least a hundred
+								characters long.
+						</div>
+
+						<div class="inner_lower">
+							<div>
+								<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+								<span>27 Smiles</span>
+							</div>
+							
+							<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+							
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div id="upper">
+						<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+						</div>
+						<div id="inner_upper">
+							<span id="one_name">User Name</span>
+							<span id="two_review">236 Reviews, 927 Followers</span>
+						</div>	
+						<span>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div id="lower">
+						<div class="reviews_content">Text, the actual content of the review. At least a hundred
+								characters long.
+						</div>
+
+						<div class="inner_lower">
+							<div>
+								<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+								<span>27 Smiles</span>
+							</div>
+							
+							<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+							
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div id="upper">
+						<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+						</div>
+						<div id="inner_upper">
+							<span id="one_name">User Name</span>
+							<span id="two_review">236 Reviews, 927 Followers</span>
+						</div>	
+						<span>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star-o" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div id="lower">
+						<div class="reviews_content">Text, the actual content of the review. At least a hundred
+								characters long.
+						</div>
+
+						<div class="inner_lower">
+							<div>
+								<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+								<span>27 Smiles</span>
+							</div>
+							
+							<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+							
+						</div>
+					</div>
+				</section>
+
+				 <div id="load_more">
+					<span>Load More</span>
+					<span><i class="fa fa-angle-right" aria-hidden="true"></span>
+				</div>	
+			</section>
+
+			<section id="other_cuisines_too">
+				<p>Other Cuisines</p>
+
+				<span id="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+				<section>
+					<div class="contain_div">
+						<img src="">
+						<div>South Indian</div>
+					</div>
+					<div class="contain_div">
+						<img src="">
+						<div>Beverages</div>
+					</div>
+					<div class="contain_div">
+						<img src="">
+						<div>Shakes</div>
+					</div>
+					<div class="contain_div">
+						<img src="">
+						<div>Tandoori</div>
+					</div>
+				</section>
+				<span id="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+			</section>
+
+
+</main> 
+
+
+
+<!-- <script type="text/javascript" src="restaurants.js">
+// console.log("double check");
+// 	console.log("check");
+// 	var stary = document.getElementById('rateInRate');
+
+// var outerInRating = document.getElementById('provide_rating');
+// var innerInRating = document.getElementById('star_container');
+// var clearInRating = document.getElementById('clear_rating');
+
+// stary.addEventListener("click", function(){
+//   if(outerInRating.style.display == "none"){
+//     outerInRating.style.display = "block";
+//   }else{
+//     outerInRating.style.display = "none";
+//   }
+// });
+
+// var pees = innerInRating.children;
+// for(var i = 0; i < pees.length; i++){
+//   pees[i].addEventListener('click', provideRating.bind(null, i));
+// }
+
+// function provideRating(k, event){
+//   var j = 0;
+//   for(; j <= k; j++){
+//     pees[j].style.color= "red";
+//     console.log(j);
+//   }
+//   for(; j < pees.length; j++){
+//     pees[j].style.color= "black";
+//     console.log(j);
+//   }
+//   outerInRating.style.display = "none";
+// }
+
+// clearInRating.addEventListener('click', function(){
+// 	if(pees[0].style.color == "red"){
+// 		for(var m = 0; m < pees.length; m++){
+// 			pees[m].style.color = "black";
+// 		}
+// 	}
+// 	outerInRating.style.display = "none";
+// });
+
+
+</script>		 -->

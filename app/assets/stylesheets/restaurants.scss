@@ -1,0 +1,1314 @@
+// Place all the styles related to the Restaurant controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#outer_header{
+	background-color: rgba(2, 4, 7, 0.2);
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+
+	div{
+
+		i{
+			font-size: 30px;
+		}
+	}
+}
+
+#restaurant {
+
+	#outer_main{
+		width: 65%;
+		margin-left: 2.5%;
+		margin-right: 2.5%;
+		display: inline-block;
+
+		.outer_section{
+			border: 1px solid black;
+		}
+
+		#image{
+			margin-top: 30px;
+			width: 100%;
+			height:300px;
+
+			#pic{
+				background-image: url("https://b.zmtcdn.com/images/foodshots/cover/pizza3.jpg?output-format=webp");
+				width: 100%;
+				height: 300px;
+				position: relative;
+
+				#rating_info{
+					position: absolute;
+					top: 10px;
+					right: 20px;
+					color: white;
+
+					p{
+						position: relative;
+						left: 30px;
+						font-size: 16px;
+						line-height: 16px;
+						align-text: right;
+						margin-bottom: 10px;
+					}
+
+					label{
+						position: relative;
+						background-color: rgba(20, 100, 150, 0.8);
+						line-height: 24px;
+						font-size: 21px;
+						left: 8px;
+					}
+
+					div{
+						position: relative;
+						width: 80px;
+						left: 10px;
+					}
+				}
+
+			}
+		}
+
+		#info{
+			margin-top: 15px;
+			margin-bottom: 10px;
+			p{
+				margin-left: 10px;
+				font-size: 28px;
+				margin-top: 5px;
+				margin-bottom: 12px;
+			}
+
+			div{
+				margin-left: 10px;
+				margin-bottom: 10px;
+
+				span{
+					margin-right: 8px;
+					font-size: 17px;
+				}
+			}
+
+			#icons_bar{
+				margin-left: 25px;
+				margin-bottom: 25px;
+				margin-top: 20px;
+
+				span{
+					font-size: 28px;
+					margin-right: 22px;
+
+
+					div{
+						display: none;
+
+						p{
+							display: inline-block;
+							font-size: 22px;
+						}
+
+						aside{
+							font-size: 20px;
+						}
+					}
+				}
+			}
+
+			
+
+			label{
+				margin-left: 10px;
+				font-size: 16px;
+				background-color: rgba(20, 100, 150, 0.7);
+				margin-bottom: 15px;
+			}
+		}
+
+		section#navigation{
+			border: 0px;
+			position: relative;
+			width: 100%;
+			nav#inner_header{
+				box-sizing: border-box;
+
+				border-radius: 5px;
+				background-color: white;
+				border: 1px solid black;
+				z-index: 2;
+				display: flex;
+				justify-content: space-around;
+				font-size: 22px;
+				height: 45px;
+				line-height: 35px;
+
+				div{
+					flex-grow: 1;
+					text-align: center;
+				}
+			}
+			height: 45px;
+			line-height: 35px;
+			margin-bottom: 10px;
+		}
+
+		#after_nav{
+			#overview{
+
+			}
+
+			#menu{
+				height: 150px;
+
+				div{
+				margin-top: 15px;
+					display: flex;
+					align-items: center;
+				}
+
+				#menu_images{
+					margin-left: 2.5%;
+					width: 95%;
+
+
+					display: flex;
+					justify-content: space-around;
+
+
+					background-color: white;
+
+
+					main{
+					  height: 154px;
+					  width: 412px;
+					  opacity: 1;
+					  display: inline-block;
+					  border: 2px solid black;
+					  border-radius: 4px;
+					  position: fixed;
+					  z-index: 1;
+					  top: 6px;
+					  left: 6px;
+					}
+
+					aside{
+					  position: absolute;
+					  display: inline-block;
+					  width: 15px;
+					  height: 15px;
+					  background-color: tomato;
+					  text-align: center;
+					  line-height: 15px;
+					  top: 80px;
+					  margin-left: 10px;
+					  left: 418px;
+					}
+
+					div{
+					  height: 150px;
+					  position: absolute;
+					  width: 200px;
+					  display: inline-block;
+					  border: 2px solid grey;
+					  border-radius: 4px;
+					  transition: all 1s ease;
+					}
+
+
+					img{
+					  width: 200px;
+					  height: 150px;
+					}
+
+					p{
+					  width: 100%;
+					  position: absolute;
+					  bottom: 5px;
+					  text-align: center;
+					  background-color: rgba(0, 0, 0, 0.4);
+					  color: white;
+					}
+
+				}
+
+				p{
+					font-size: 20px;
+					margin-left: 25px;
+				}
+
+				span{
+					display: flex;
+					align-content: center;
+					justify-content: center;
+					font-size: 25px;
+					margin-left: 10px;
+					margin-right: 10px;
+					background-color: rgba(0, 0, 0, 0.3);
+					width: 25px;
+				}
+			}
+
+			#cuisines{
+				height: 280px;
+
+				div{
+					margin-top: 15px;
+					margin-left: 25px;
+					display: flex;
+					align-items: center;
+				}
+
+				.cuisine_images{
+					img{
+						margin-left: 15px;
+						margin-right: 10px;
+					}
+					margin-left: 2.5%;
+					width: 95%;
+					display: flex;
+					justify-content: space-around;
+					background-color: white;
+				}
+
+				p{
+					font-size: 20px;
+					margin-left: 25px;
+				}
+
+				span{
+					display: flex;
+					align-content: center;
+					justify-content: center;
+					font-size: 25px;
+					margin-left: 10px;
+					margin-right: 10px;
+					background-color: rgba(0, 0, 0, 0.3);
+					width: 25px;
+				}
+			}
+
+			#photos{
+				height: 175px;
+
+				#photo_images{
+					margin-top: 15px;
+					margin-bottom: 10px;
+					display: flex;
+					align-items: center;
+
+					margin-left: 2.5%;
+					width: 95%;
+					display: flex;
+					justify-content: space-around;
+					background-color: white;
+				}
+
+				p{
+					font-size: 20px;
+					margin-left: 25px;
+				}
+
+				span{
+					font-size: 15px;
+					background-color: rgba(0, 0, 0, 0.3);
+				}
+
+				#one{
+					margin-left: 80%;
+				}
+				#two{
+					background-color: rgba(0, 0, 0, 0);
+					margin-left: 0.5%;
+					font-size: 15px;
+				}
+			}
+
+			#reviews{
+				#write{
+					height: 120px;
+					p{
+						margin: 10px;
+						font-size: 18px;
+					}
+
+					input{
+						margin-left: 3%;
+						width: 60%;
+						height: 60px;
+					}
+
+					button{
+						margin-top: 5px;
+						font-size: 16px;
+						margin-left: 52%;
+					}
+				}
+
+				main{
+					section{
+						overflow-y: stretch;
+						height: 185px;
+						#upper{
+							margin-left: 15px;
+							display: flex;
+
+
+							#inner_upper{
+								display: flex;
+								flex-direction: row;
+
+								#one_name{
+									margin-left: 10px;
+									margin-top: 3px;
+									font-size: 14px;
+								}
+
+								#two_review{
+									margin-left: 10px;
+									margin-top: 3px;
+									margin-bottom: 10px;
+									font-size: 11px;
+									line-height: 11px;
+								}
+
+								border: none;
+								width: 20%;
+								height: 50px;
+								display: flex;
+								flex-direction: column;
+							}
+
+							div{
+								overflow: hidden;
+								box-sizing: content-box;
+								height: 34px;
+								width: 34px;
+								border-radius: 17px;
+								border: 1px solid black;
+							}
+							
+						}
+
+						#lower{
+							margin-left: 60px;
+
+							.reviews_content{
+								width: 75%;
+								height: 90px;
+								border: 1px solid black;
+							}
+
+							.inner_lower{
+								padding: 0 10px 0 10px;
+								margin-top: 8px;
+								width: 75%;
+								height: 15px;
+								display: flex;
+								justify-content: space-between;
+								
+								.share{
+									font-size: 20px;
+									margin-right: 10px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#false_info_check{
+			margin-left: 2px;
+			margin-top: 80px;
+			width: 99%;
+			font-size: 17px;
+			height: 80px;
+			line-height: 50px;
+		}
+	}
+
+	#outer_aside{
+		position: absolute;
+		top: 80px;
+		
+		display: inline-block;
+		width: 20%;
+
+		#popular_places{
+
+			margin-top: 20px;
+			margin-bottom: 20px;
+
+			
+
+			padding: 10px 10px 10px 10px;
+			p{
+				margin-left: 5px;
+				font-size: 20px;
+				margin-bottom: 15px;
+			}
+
+			main{
+				border: 1px solid black;
+
+				display: flex;
+				flex-direction: column;
+
+				.outer_place{
+					width: 100%;
+					height: 120px;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					margin-top: 10px;
+					margin-bottom: 5px;
+					overflow-y: hidden;
+
+					img{
+						margin-left: 10px;
+						margin-right: 10px;
+						margin-bottom: 10px;
+						width: 100px;
+						height: 70px;
+					}
+
+					div.place{
+						display: flex;
+						flex-direction: column;
+
+
+						p{
+							margin-left: 12px;
+							font-size: 12px;
+							line-height: 2px;
+						}
+					}
+				}
+
+			}
+		}
+
+		#similar_places{
+			margin-top: 20px;
+			margin-bottom: 20px;
+
+			border: 1px solid black;
+
+			padding: 10px 10px 10px 10px;
+			p{
+				font-size: 20px;
+				margin-bottom: 15px;
+			}
+
+			main{
+				border: 1px solid black;
+
+				display: flex;
+				flex-direction: column;
+
+				div{
+					width: 80%;
+					height: 80px;
+					display: flex;
+					flex-direction: row;
+
+					img{
+						margin-left: 10px;
+						margin-right: 10px;
+						margin-bottom: 10px;
+						width: 100px;
+						height: 70px;
+					}
+				}
+
+			}
+		}
+
+		#popular_foodstars{
+			margin-top: 20px;
+			margin-bottom: 20px;
+
+			padding: 10px 10px 10px 10px;
+			p{
+				font-size: 20px;
+				margin-bottom: 15px;
+			}
+
+			main{
+				border: 1px solid black;
+
+				display: flex;
+				flex-direction: column;
+
+				.user{
+					margin-top: 15px;
+					width: 90%;
+					height: 34px;
+					display: flex;
+					flex-direction: row;
+					margin-left: 2%;
+					justify-content: space-between;
+					margin-bottom: 16px;
+
+					.userimage{
+						width: 34px;
+						height: 34px;
+						border: 1px solid black;
+						box-sizing: content-box;
+						border-radius: 17px;
+						overflow: hidden;
+
+						margin-right: 2%;
+						
+					}	
+
+					div{
+						.name{
+							font-size: 15px;
+						}
+
+						.otherinfo{
+							font-size: 12px;
+						}
+					}
+
+					div{
+						button{
+							width: 20px;
+							margin-top: 4.5px;
+							line-height: 25px;
+							font-size: 20px;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+
+
+
+#details{
+
+	#outer_aside{
+		margin-top: 3%;
+		display: inline-block;
+		width: 20%;
+		
+		margin-left: 3%;
+		vertical-align: top;
+
+		.outer_section{
+			border: 1px solid black;
+		}
+
+		#info{
+			margin-top: 15px;
+			margin-bottom: 10px;
+			p{
+				margin-left: 10px;
+				font-size: 28px;
+				margin-top: 5px;
+				margin-bottom: 12px;
+			}
+
+			div{
+				margin-left: 10px;
+				margin-bottom: 10px;
+
+				span{
+					margin-right: 8px;
+					font-size: 17px;
+				}
+			}
+
+			#icons_bar{
+				margin-left: 25px;
+				margin-bottom: 25px;
+				margin-top: 20px;
+
+				span{
+					font-size: 28px;
+					margin-right: 22px;
+
+
+					div{
+						display: none;
+
+						p{
+							display: inline-block;
+							font-size: 22px;
+						}
+
+						aside{
+							font-size: 20px;
+						}
+					}
+				}
+			}
+		}
+
+		main{
+			margin-top: 15%;
+
+			.part{
+				width: 95%;
+				margin-left: 2.5%;
+				margin-right: 2.5%;
+				margin-bottom: 20px;
+
+				border: 1px solid grey;
+
+				p{
+					font-weight: 590;
+					font-size: 26px;
+					line-height: 36px;
+				    width: 90%;
+				    text-align: center;
+
+				    background-color: rgba(0, 0, 255, 0.4); 
+				}
+
+				footer{
+					position: relative;
+				}
+
+				section{
+					width: 85%;
+					overflow: hidden;
+					display: flex;
+					overflow: hidden;
+					height: 120px;
+
+					.container_div{
+						width: 47.5%;
+						position: relative;
+						margin-left: 2.5%;
+
+						img{
+							margin-top: 10%;
+							width: 100%;
+							height: 90%;
+							position: absolute;
+						}
+
+						div{
+							width: 100%;
+							font-size: 16px;
+							line-height: 22px;
+							text-align: center;
+							background-color: rgba(0, 0, 0, 0.2);
+							text-color: white;
+							position: absolute;
+							bottom: 15px;
+						}
+					}
+				}
+
+				.angle_right{
+					position: absolute;
+					right: 2.5%;
+					width: 8%;
+					background-color: rgba(0, 0, 0, 0.1);
+					font-size: 22px;
+					line-height: 24px;
+					text-align: center;
+					top: 50%;
+					transform: translate(0, -50%);
+
+				}
+
+
+			}
+		}
+
+	}
+
+	#outer_main{
+		position: relative;
+		display: inline-block;
+		width: 50%;
+		margin-left: 5%;
+		margin-top: 14%;
+
+		border: 1px solid grey;
+
+		#provide_rating{
+			display: none;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+
+			#star_container{
+				p{
+					display: inline-block;
+					font-size: 20px;
+				}
+			}
+
+			#clear_rating{
+
+			}
+		}
+
+		#outside{
+			
+			position: absolute;
+			top: 0;
+			left: 100%;
+			transform: translate(-100%, 0);
+			line-height: 22px;
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+
+			border: 1px solid grey;
+
+			span{
+				font-size: 15px;
+				flex-grow: 0;
+				text-align: center;
+			}
+
+			div{
+				font-size: 18px;
+				flex-grow: 1;
+				height: 30px;
+				text-align: center;
+			}
+		}
+
+		main{
+
+			padding-left: 20px;
+
+			#inside{
+				width: 100%;
+				display: flex;
+				
+				margin-right: 15px;
+				justify-content: space-between;
+				height: 460;
+				margin-top: 50px;
+				margin-bottom: 30px;
+
+				span{
+					font-weight: 600;
+					font-size: 34px;
+					line-height: 38px;
+					color: tomato;
+				}
+
+				#rating_info{
+
+					p{
+						position: relative;
+						left: 30px;
+						font-size: 14px;
+						line-height: 14px;
+						align-text: right;
+						margin-bottom: 7px;
+					}
+
+					label{
+						position: relative;
+						background-color: rgba(20, 100, 150, 0.8);
+						line-height: 21px;
+						font-size: 19px;
+						left: 0px;
+					}
+
+					div{
+						position: relative;
+						width: 80px;
+						left: -10px;
+						text-align: right;
+					}
+				}
+			}
+
+			#cuisine_name_menu{
+				vertical-align: middle;
+
+				p{
+					font-size: 20px;
+					line-height: 20px;
+					margin-left: 5%;
+					margin-bottom: 24px;
+				}
+
+				div{
+					display: inline-block;
+					width: 80%;
+					margin-left: 10%;
+					height: 720px;
+
+					img{
+						width: 100%;
+						height: 100%;
+						background-color: rgba(0, 0, 0, 0.1);
+					}
+				}
+
+				span{
+					display: inline-block;
+					font-size: 40px;
+					vertical-align: 2000%;
+					margin-left: 15px;
+				}
+			}
+
+
+			#recommended_dishes{
+				margin-top: 30px;
+
+				p{
+					font-size: 20px;
+					line-height: 20px;
+					margin-left: 5%;
+					margin-bottom: 24px;
+				}
+
+				nav{
+					margin-left: 10%;
+					margin-right: 10%;
+
+					display: flex;
+					justify-content: space-between;
+
+					ul{
+						height: 80px;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+
+						padding-top: 10px;
+						padding-bottom: 10px;
+
+						li{
+							font-size: 16px;
+						}
+					}
+				}
+
+
+			}
+
+
+
+			#reviews{
+				margin-top: 30px;
+
+				p{
+					font-size: 20px;
+					line-height: 20px;
+					margin-left: 5%;
+					margin-bottom: 24px;
+				}
+
+					section{
+						margin-top: 30px;
+						margin-left: 3%;
+
+						overflow-y: stretch;
+						height: 185px;
+						#upper{
+							margin-left: 15px;
+							display: flex;
+
+
+							#inner_upper{
+								display: flex;
+								flex-direction: row;
+
+								#one_name{
+									margin-left: 10px;
+									margin-top: 3px;
+									font-size: 14px;
+								}
+
+								#two_review{
+									margin-left: 10px;
+									margin-top: 3px;
+									margin-bottom: 10px;
+									font-size: 11px;
+									line-height: 11px;
+								}
+
+								border: none;
+								width: 20%;
+								height: 50px;
+								display: flex;
+								flex-direction: column;
+							}
+
+							div{
+								overflow: hidden;
+								box-sizing: content-box;
+								height: 34px;
+								width: 34px;
+								border-radius: 17px;
+								border: 1px solid black;
+							}
+							
+						}
+
+						#lower{
+							margin-top: 5px;
+							margin-left: 60px;
+
+							.reviews_content{
+								width: 85%;
+								height: 90px;
+								border: 1px solid black;
+							}
+
+							.inner_lower{
+								padding: 0 10px 0 10px;
+								margin-top: 8px;
+								width: 85%;
+								height: 15px;
+								display: flex;
+								justify-content: space-between;
+								
+								.share{
+									font-size: 20px;
+									
+								}
+							}
+						}
+					}
+			}
+
+			#other_cuisines_too{
+				margin-top: 30px;
+				width: 100%;
+				height: 180px;
+				position: relative;
+
+				p{
+					font-size: 20px;
+					line-height: 20px;
+					margin-left: 5%;
+					margin-bottom: 24px;
+				}
+
+				span{
+					position: absolute;
+					vertical-align: middle;
+					font-size: 24px;
+					line-height: 28px;
+					top: 50%;
+					
+					transform: translate(0, -50%);
+				}
+
+				#left{
+					left: 5%;
+				}
+
+				#right{
+					right: 5%;
+				}
+
+				section{
+					margin-left: 10%;
+					display: flex;
+					width: 80%;
+					justify-content: space-between;
+
+					.contain_div{
+						margin-left: 7px;
+						margin-right: 7px;
+						position: relative;
+						height: 100px;
+						width: 110px;
+
+						img{
+							top: 0px;
+							position: absolute;
+							width: 110px;
+							height: 100px;
+							background-color: tomato;
+						}
+
+						div{
+							position: absolute;
+							bottom: 10px;
+							color: white;
+							font-size: 16px;
+							width: 100%;
+							height: 20px;
+							line-height: 20px;
+							text-align: center;
+							font-weight: 500;
+						}
+					}
+				}
+			}
+
+		}
+	}
+	
+	
+}
+
+#menu_details{
+
+	section{
+		margin-top: 20px;
+	}
+	
+	.any_menu{
+		vertical-align: middle;
+		margin-top: 30px;
+
+		p{
+			font-size: 20px;
+			line-height: 20px;
+			margin-left: 5%;
+			margin-bottom: 24px;
+		}
+
+		div{
+			display: inline-block;
+			width: 80%;
+			margin-left: 10%;
+			height: 720px;
+
+			img{
+				width: 100%;
+				height: 100%;					background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+
+		span{
+			display: inline-block;
+			font-size: 40px;
+			vertical-align: 2000%;
+			margin-left: 15px;
+		}
+	}
+
+	#recommended_cuisines{
+		margin-top: 30px;
+
+			p{
+				font-size: 20px;
+				line-height: 20px;
+				margin-left: 5%;
+				margin-bottom: 24px;
+			}
+
+			nav{
+				margin-left: 10%;
+				margin-right: 10%;
+
+				display: flex;
+				justify-content: space-between;
+
+				ul{
+					height: 80px;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+
+					padding-top: 10px;
+					padding-bottom: 10px;
+
+					li{
+						font-size: 16px;
+					}
+				}
+			}
+	}
+
+	#cuisines_available_here{
+		margin-top: 30px;
+				width: 100%;
+				height: 180px;
+				position: relative;
+
+				p{
+					font-size: 20px;
+					line-height: 20px;
+					margin-left: 5%;
+					margin-bottom: 24px;
+				}
+
+				span{
+					position: absolute;
+					vertical-align: middle;
+					font-size: 24px;
+					line-height: 28px;
+					top: 50%;
+					
+					transform: translate(0, -50%);
+				}
+
+				#left{
+					left: 5%;
+				}
+
+				#right{
+					right: 5%;
+				}
+
+				section{
+					margin-left: 10%;
+					display: flex;
+					width: 80%;
+					justify-content: space-between;
+
+					.contain_div{
+						margin-left: 7px;
+						margin-right: 7px;
+						position: relative;
+						height: 100px;
+						width: 110px;
+
+						img{
+							top: 0px;
+							position: absolute;
+							width: 110px;
+							height: 100px;
+							background-color: tomato;
+						}
+
+						div{
+							position: absolute;
+							bottom: 10px;
+							color: white;
+							font-size: 16px;
+							width: 100%;
+							height: 20px;
+							line-height: 20px;
+							text-align: center;
+							font-weight: 500;
+						}
+					}
+				}
+	}
+}
+
+#photos_details{
+
+	section{
+		margin-top: 20px;
+	}
+	
+	.category_photos{
+		vertical-align: middle;
+		margin-top: 30px;
+
+		p{
+			font-size: 20px;
+			line-height: 20px;
+			margin-left: 5%;
+			margin-bottom: 24px;
+		}
+
+		div{
+			display: flex;
+			flex-wrap: wrap;
+
+			width: 80%;
+			margin-left: 10%;
+			height: 720px;
+
+			img{
+				width: 23%;
+				margin-right: 10px;
+				height: 120px;
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+
+		span{
+			margin-top: 20px;
+			margin-bottom: 20px;	
+			font-size: 14px;
+			line-height: 22px;
+			margin-left: 45%;
+			transform: translate(-50%, 0);
+
+			border-top: 1px dashed grey;
+			border-bottom: 1px dashed grey;
+		}
+	}
+
+	#cuisines_available_here{
+		margin-top: 30px;
+				width: 100%;
+				height: 180px;
+				position: relative;
+
+				p{
+					font-size: 20px;
+					line-height: 20px;
+					margin-left: 5%;
+					margin-bottom: 24px;
+				}
+
+				span{
+					position: absolute;
+					vertical-align: middle;
+					font-size: 24px;
+					line-height: 28px;
+					top: 50%;
+					
+					transform: translate(0, -50%);
+				}
+
+				#left{
+					left: 5%;
+				}
+
+				#right{
+					right: 5%;
+				}
+
+				section{
+					margin-left: 10%;
+					display: flex;
+					width: 80%;
+					justify-content: space-between;
+
+					.contain_div{
+						margin-left: 7px;
+						margin-right: 7px;
+						position: relative;
+						height: 100px;
+						width: 110px;
+
+						img{
+							top: 0px;
+							position: absolute;
+							width: 110px;
+							height: 100px;
+							background-color: tomato;
+						}
+
+						div{
+							position: absolute;
+							bottom: 10px;
+							color: white;
+							font-size: 16px;
+							width: 100%;
+							height: 20px;
+							line-height: 20px;
+							text-align: center;
+							font-weight: 500;
+						}
+					}
+				}
+	}
+
+}
+
+
+
+
+
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details</title>
+	<script src="https://use.fontawesome.com/9bc23640e2.js"></script>
+</head>
+<body>
+
+<p id="notice"><%= notice %></p>
+
+<div id="details">
+	<header id="outer_header">
+		<div><i class="fa fa-phone" aria-hidden="true"></i></div>
+		<div><i class="fa fa-star-o" aria-hidden="true"></i></div>
+		<div>
+			<button>City</button>
+			<div>Search</div>
+		</div>
+		<div><i class="fa fa-user" aria-hidden="true"></i></div>
+	</header>
+
+	<aside id="outer_aside">
+		<section id="info" class="outer_section">
+			<p>Restaurant Name</p>
+
+			<div>
+				<span>Restaurant Locality</span>
+				<span>~ </span>
+				<span>Main Categories, that Restaurant comes into</span>
+			</div>	
+
+			<div id="icons_bar">
+			<span>
+			<%=  link_to raw(@restaurant.bookmark_icon(current_user.id)), url_for(controller: 'bookmarks', action: 'toggle_bookmark', restaurant: @restaurant), method: :post,id: "bookmark_#{@restaurant.id}" ,remote: true %>
+			</span>
+			<span>
+			<%=  link_to raw(@restaurant.beenhere_icon(current_user.id)), url_for(controller: 'been_heres', action: 'toggle_beenhere', restaurant: @restaurant), method: :post,id: "beenhere_#{@restaurant.id}" ,remote: true %>
+			</span>
+			<span id="star">
+				<i class="fa fa-star-o" aria-hidden="true"></i>
+				<div id="divy">
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
+				</div>	
+				<aside id="clear">clear</aside>
+			</span>
+			<span><i class="fa fa-check" aria-hidden="true"></i></span>
+			<span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+		</div>		
+
+			<label>discounts available</label>
+		</section>
+
+		<main>
+			<section class="part">
+				<p>
+<%= link_to "Menu",url_for(controller: 'restaurants', action: 'ankiting', which: "1"), method: :post,  remote: true %>
+				</p>
+				<footer>
+					<section>
+						<div class="container_div">
+							<img src="">
+							<div>Food Menu</div>
+						</div>
+						<div class="container_div">
+							<img src="">
+							<div>Bar Menu</div>
+						</div>
+					</section>
+					<div class="angle_right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+				</footer>
+			</section>
+
+			<section class="part">
+				<p>
+					<%= link_to "Cuisines",url_for(controller: 'restaurants', action: 'ankiting', which: "2"), method: :post,  remote: true %>
+				</p>
+				<footer>
+					<section>
+
+					<% Cuisine.where(restaurant: @restaurant).each do |cuis| %>
+
+						<div class="container_div">
+							<img src="">
+							<div>
+								<%= link_to cuis.name, url_for(controller: "restaurants", action: "handleClick", cuisine: cuis, restaurant_id: @restaurant), method: :post,  remote: true %>
+							</div>
+						</div>
+						<!-- <div class="container_div">
+							<img src="">
+							<div>Italian</div>
+						</div>
+						<div class="container_div">
+							<img src="">
+							<div>North Indian</div>
+						</div> --> -->
+
+					<% end %>
+
+
+					</section>
+					<div class="angle_right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+				</footer>
+			</section>
+
+			<section class="part">
+				<p>
+					<%= link_to "Photos",url_for(controller: 'restaurants', action: 'ankiting', which: "3"), method: :post,  remote: true %>
+				</p>
+				<footer>
+					<section>
+						<div class="container_div">
+							<img src="">
+							<div>Indoor Seating</div>
+						</div>
+						<div class="container_div">
+							<img src="">
+							<div>Roof and Outdoor Seating</div>
+						</div>
+						<div class="container_div">
+							<img src="">
+							<div>Food</div>
+						</div>
+						<div class="container_div">
+							<img src="">
+							<div>Neighbourhood/Exterior</div>
+						</div>
+					</section>
+					<div class="angle_right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+				</footer>
+			</section>
+		</main>
+	</aside>
+
+	<main id="outer_main">
+		
+
+		<% if which == "1" %>
+			<%= render 'menu' %>
+		<% elsif which == "2" %>
+			<%= render 'cuisines' %>
+		<% elsif which == "3" %>
+			<%= render 'photos' %>
+		<% end %>			
+			
+	</main>
+
+
+
+</div>
+
+</body>
+</html>

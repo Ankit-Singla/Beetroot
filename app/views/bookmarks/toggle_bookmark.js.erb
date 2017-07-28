@@ -1,0 +1,13 @@
+
+<% if @is_bookmarked %>
+$('#bookmark_<%= @restaurant.id%>').html("<i class=\"fa fa-bookmark\" aria-hidden=\"true\"></i>");
+
+noty({text: 'Bookmark Added', type: 'alert'});
+
+<% else %>
+
+$('#bookmark_<%= @restaurant.id%>').html("<i class=\"fa fa-bookmark-o\" aria-hidden=\"true\"></i>");
+
+noty({text: 'Bookmark Removed', type: 'alert'});
+
+<% end %>
