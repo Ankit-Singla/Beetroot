@@ -12,21 +12,183 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, 'Business Name' %><br>
+    <%= f.text_field :name, required: true %>
   </div>
+
+  <div>
+    <select name="city" id="city">
+      <option value="1" disabled="true" selected="true">City</option>
+      <option value="2">Delhi</option>
+      <option value="3">Chandigarh</option>
+    </select>
+  </div>
+
+  <div>
+    <%= label_tag(:locality, "Locality") %>
+    <select name="locality" id="locality">
+      <option value="1">Hauz Khas Village</option>
+      <option value="2">Hudson Lane</option>
+      <option value="3">Civil Lines</option>
+      <option value="4">Satya Niketan</option>
+      <option value="5">Khan Market</option>
+    </select>
+    <%= label_tag(:locality, "Other")%>
+    <%= text_field_tag :locality %>
+  </div>
+
   <div class="field">
-    <%= f.label :locality %><br>
-    <%= f.text_field :locality %>
+    <%= radio_button_tag(:ownership, "yes") %>
+    <%= label_tag(:yes, "You are the Owner/Manager") %>
+    <%= radio_button_tag(:ownership, "no") %>
+    <%= label_tag(:no, "You are not the Owner/Manager") %>
   </div>
-  <div class="field">
-    <%= f.label :phone_no %><br>
-    <%= f.text_field :phone_no %>
-  </div>
+
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
   </div>
+
+  <div class="field">
+    <%= f.label :phone_no %><br>
+    <%= f.telephone_field :phone_no %>
+  </div>
+ 
+
+  <div>
+    <%= label_tag(:main_categories, "Main Categories") %>
+    <select name="main_categories" id="main_categories" multiple="true">
+      <option value="1">Fine Dining</option>
+      <option value="2">Rooftop</option>
+      <option value="3">Lunch</option>
+      <option value="4">Delivery</option>
+      <option value="5">Nightlife</option>
+      <option value="6">Take Away</option>
+    </select>
+    <%= label_tag(:main_categories, "(Hold Ctrl(Windows)/Command(Mac) to select multiple items in the list)") %>
+  </div>
+
+  <div>
+    <span>Hours of Operation</span>
+    <p>Weekends</p>
+    <%= label_tag(:weekend_opening_hours, "Opening") %>
+    <select name="weekend_opening_hours" id="weekend_opening_hours">
+      <option value="1">10:00</option>
+      <option value="2">11:00</option>
+      <option value="3">12:00</option>
+      <option value="4">13:00</option>
+      <option value="5">14:00</option>
+      <option value="6">15:00</option>
+    </select>
+    <%= label_tag(:weekend_opening_hours, "Closing") %>
+    <select name="weekend_closing_hours" id="weekend_closing_hours">
+      <option value="1">20:00</option>
+      <option value="2">21:00</option>
+      <option value="3">22:00</option>
+      <option value="4">23:00</option>
+      <option value="5">00:00</option>
+      <option value="6">01:00</option>
+    </select>
+
+    <p>Weekdays</p>
+    <%= label_tag(:weekdays_opening_hours, "Opening") %>
+    <select name="weekdays_opening_hours" id="weekdays_opening_hours">
+      <option value="1">10:00</option>
+      <option value="2">11:00</option>
+      <option value="3">12:00</option>
+      <option value="4">13:00</option>
+      <option value="5">14:00</option>
+      <option value="6">15:00</option>
+    </select>
+    <%= label_tag(:weekdays_opening_hours, "Closing") %>
+    <select name="weekdays_closing_hours" id="weekdays_closing_hours">
+      <option value="1">20:00</option>
+      <option value="2">21:00</option>
+      <option value="3">22:00</option>
+      <option value="4">23:00</option>
+      <option value="5">00:00</option>
+      <option value="6">01:00</option>
+    </select>
+  </div>
+
+  <div>
+    <%= label_tag(:highlights, "Highlights/Attractions") %>
+    <select name="highlights" id="highlights" multiple="true">
+      <option value="1">Seating Available</option>
+      <option value="2">Valet Parking</option>
+      <option value="3">DJ</option>
+      <option value="4">Live Music</option>
+      <option value="5">Theme based</option>
+    </select>
+    <%= label_tag(:highlights, "(Hold Ctrl(Windows)/Command(Mac) to select multiple items in the list)") %>
+    <br>
+    <%= label_tag(:other_highlights, "Others")%>
+    <%= text_field_tag :other_highlights %>
+  </div>
+
+  <div>
+    <%= label_tag(:cuisines, "Cuisines Available") %>
+    <select name="cuisines" id="cuisines" multiple="true" required="true">
+      <option value="1">Chinese</option>
+      <option value="2">NMexican</option>
+      <option value="3">Italian</option>
+      <option value="4">North Indian</option>
+      <option value="5">South Indian</option>
+    </select>
+    <%= label_tag(:cuisines, "(Hold Ctrl(Windows)/Command(Mac) to select multiple items in the list)") %>
+    <br>
+    <%= label_tag(:cuisines, "Others")%>
+    <%= text_field_tag :cuisines %>
+  </div>
+
+  <div>
+    <%= label_tag(:upcoming_events, "Upcoming Events (if any)") %>
+    <%= text_area_tag :upcoming_events %>
+  </div>
+
+  <div>
+    <span>Happy Hours (if any)</span>
+    <p>Weekends</p>
+    <%= label_tag(:weekend_opening_hours, "Starting hours") %>
+    <select name="weekend_opening_hours" id="weekend_opening_hours">
+      <option value="1">14:00</option>
+      <option value="2">15:00</option>
+      <option value="3">16:00</option>
+      <option value="4">17:00</option>
+      <option value="5">18:00</option>
+      <option value="6">19:00</option>
+    </select>
+    <%= label_tag(:weekend_opening_hours, "Ending hours") %>
+    <select name="weekend_closing_hours" id="weekend_closing_hours">
+      <option value="1">20:00</option>
+      <option value="2">21:00</option>
+      <option value="3">22:00</option>
+      <option value="4">23:00</option>
+      <option value="5">00:00</option>
+      <option value="6">01:00</option>
+    </select>
+
+    <p>Weekdays</p>
+    <%= label_tag(:weekdays_opening_hours, "Starting hours") %>
+    <select name="weekdays_opening_hours" id="weekdays_opening_hours">
+      <option value="1">14:00</option>
+      <option value="2">15:00</option>
+      <option value="3">16:00</option>
+      <option value="4">17:00</option>
+      <option value="5">18:00</option>
+      <option value="6">19:00</option>
+    </select>
+    <%= label_tag(:weekdays_opening_hours, "Ending hours") %>
+    <select name="weekdays_closing_hours" id="weekdays_closing_hours">
+      <option value="1">20:00</option>
+      <option value="2">21:00</option>
+      <option value="3">22:00</option>
+      <option value="4">23:00</option>
+      <option value="5">00:00</option>
+      <option value="6">01:00</option>
+    </select>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
