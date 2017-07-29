@@ -156,7 +156,37 @@
 
 		#after_nav{
 			#overview{
+				display: flex;
+				justify-content: space-around;
 
+				section{
+					display: inline-block;
+					width: 30%;
+					vertical-align: top;
+
+					header{
+						margin-bottom: 30px;
+					}
+
+					h4{
+						margin-bottom: 10px;
+					}
+
+					p{
+						margin-bottom: 15px;
+					}
+
+					ul{
+						list-style: none;
+						padding-left: 5px;
+						margin-bottom: 15px;
+					}
+
+					img{
+						width: 85%;
+						height: 170px;
+					}
+				}
 			}
 
 			#menu{
