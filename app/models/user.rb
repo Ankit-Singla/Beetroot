@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :been_heres
   has_many :ratings     
   has_many :reservations      
+  has_many :reviews
 end

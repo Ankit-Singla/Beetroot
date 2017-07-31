@@ -190,69 +190,34 @@
 			}
 
 			#menu{
-				height: 150px;
 
 				div{
-				margin-top: 15px;
+					margin-top: 15px;
+					margin-bottom: 15px;
 					display: flex;
 					align-items: center;
 				}
 
 				#menu_images{
 					margin-left: 2.5%;
-					width: 95%;
-
-
+					margin-right: 2.5%;
+					width: 60%;
 					display: flex;
-					justify-content: space-around;
-
+					justify-content: space-between;
 
 					background-color: white;
-
-
-					main{
-					  height: 154px;
-					  width: 412px;
-					  opacity: 1;
-					  display: inline-block;
-					  border: 2px solid black;
-					  border-radius: 4px;
-					  position: fixed;
-					  z-index: 1;
-					  top: 6px;
-					  left: 6px;
-					}
-
-					aside{
-					  position: absolute;
-					  display: inline-block;
-					  width: 15px;
-					  height: 15px;
-					  background-color: tomato;
-					  text-align: center;
-					  line-height: 15px;
-					  top: 80px;
-					  margin-left: 10px;
-					  left: 418px;
-					}
-
 					div{
-					  height: 150px;
-					  position: absolute;
-					  width: 200px;
-					  display: inline-block;
-					  border: 2px solid grey;
-					  border-radius: 4px;
-					  transition: all 1s ease;
+						display: inline-block;
+						position: relative;
 					}
 
 
 					img{
-					  width: 200px;
+					  width: 180px;
 					  height: 150px;
 					}
 
-					p{
+					h6{
 					  width: 100%;
 					  position: absolute;
 					  bottom: 5px;
@@ -320,19 +285,39 @@
 			}
 
 			#photos{
-				height: 175px;
+
+				
 
 				#photo_images{
 					margin-top: 15px;
 					margin-bottom: 10px;
-					display: flex;
-					align-items: center;
 
 					margin-left: 2.5%;
-					width: 95%;
+					width: 80%;
 					display: flex;
-					justify-content: space-around;
+					justify-content: space-between;
+
 					background-color: white;
+					div{
+						display: inline-block;
+						position: relative;
+					}
+
+
+					img{
+					  width: 180px;
+					  height: 150px;
+					}
+
+					h6{
+					  width: 100%;
+					  position: absolute;
+					  bottom: 5px;
+					  text-align: center;
+					  background-color: rgba(0, 0, 0, 0.4);
+					  color: white;
+					}
+
 				}
 
 				p{
@@ -1009,7 +994,23 @@
 							}
 						}
 					}
+
+					#load_more{
+						margin: 30px 0px;
+
+						height: 24px;
+						font-size: 18px;
+						line-height: 24px;
+						background-color: rgba(200, 200, 200, 0.5);
+						text-align: center;
+
+						span{
+							cursor: pointer;
+						}
+					}
 			}
+
+			
 
 			#other_cuisines_too{
 				margin-top: 30px;
@@ -1076,7 +1077,7 @@
 						}
 					}
 				}
-			}
+	}
 
 		}
 	}
@@ -1109,7 +1110,8 @@
 
 			img{
 				width: 100%;
-				height: 100%;					background-color: rgba(0, 0, 0, 0.1);
+				height: 100%;					
+				background-color: rgba(0, 0, 0, 0.1);
 			}
 		}
 

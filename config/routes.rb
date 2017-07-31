@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/upload_image' => 'home#upload_image'
   post '/toggle' => 'bookmarks#toggle_bookmark'
   post '/toggle_beenhere' => 'been_heres#toggle_beenhere'
+  post '/toggle_like' => 'likes#toggle_like'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

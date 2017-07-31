@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724074936) do
+ActiveRecord::Schema.define(version: 20170730162454) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 20170724074936) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "review_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["review_id"], name: "index_likes_on_review_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
+
   create_table "ratings", force: :cascade do |t|
     t.integer  "num_stars"
     t.integer  "cuisine_id"
@@ -113,6 +123,18 @@ ActiveRecord::Schema.define(version: 20170724074936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cuisine_id"
+    t.text     "content"
+    t.integer  "rating_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["cuisine_id"], name: "index_reviews_on_cuisine_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

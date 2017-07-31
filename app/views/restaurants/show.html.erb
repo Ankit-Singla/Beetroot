@@ -58,10 +58,10 @@
 
 		<div id="icons_bar">
 			<span>
-			<%=  link_to raw(@restaurant.bookmark_icon(current_user.id)), url_for(controller: 'bookmarks', action: 'toggle_bookmark', restaurant: @restaurant), method: :post,id: "bookmark_#{@restaurant.id}" ,remote: true %>
+			<%=  link_to raw(@restaurant.bookmark_icon(current_user ? current_user.id : 1)), url_for(controller: 'bookmarks', action: 'toggle_bookmark', restaurant: @restaurant), method: :post,id: "bookmark_#{@restaurant.id}" ,remote: true %>
 			</span>
 			<span>
-			<%=  link_to raw(@restaurant.beenhere_icon(current_user.id)), url_for(controller: 'been_heres', action: 'toggle_beenhere', restaurant: @restaurant), method: :post,id: "beenhere_#{@restaurant.id}" ,remote: true %>
+			<%=  link_to raw(@restaurant.bookmark_icon(current_user ? current_user.id : 1)), url_for(controller: 'been_heres', action: 'toggle_beenhere', restaurant: @restaurant), method: :post,id: "beenhere_#{@restaurant.id}" ,remote: true %>
 			</span>
 			<span id="star">
 				<i class="fa fa-star-o" aria-hidden="true"></i>
@@ -142,38 +142,28 @@
 	<section id="menu" class="outer_section">
 		<p><%= link_to "Menu",url_for(controller: 'restaurants', action: 'ankiting', which: "1"), method: :get %></p>
 		<div>
-			<span>
+			<!-- <span>
 				<i class="fa fa-angle-left" aria-hidden="true"></i>
-			</span>
+			</span> -->
 
 			<span id="menu_images">
-				<main>
-				</main>  
-				  <!-- <div>
-				    <img src="http://goodfoodhelp.com/images/clients/logo-6.png">
-				    <p>Description 1</p>
-				  </div>
-				  <div>
-				    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWRxL_6K5yRV2c5o5LOrIj7MJQI2OU165ZFAOI8pHGGFr9SRrxSA6NRJM">
-				    <p>Description 2</p>
-				  </div>
-				  <div>
-				    <img src="http://goodfoodhelp.com/images/clients/logo-6.png">
-				    <p>Description 3</p>
-				  </div>
-				  <div>
-				    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWRxL_6K5yRV2c5o5LOrIj7MJQI2OU165ZFAOI8pHGGFr9SRrxSA6NRJM">
-				    <p>Description 4</p>
-				  </div>
-				  <div>
-				    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWRxL_6K5yRV2c5o5LOrIj7MJQI2OU165ZFAOI8pHGGFr9SRrxSA6NRJM">
-				    <p>Description 5</p>
-				  </div>
- -->			</span>
-
-			<span>
-				<i class="fa fa-angle-right" aria-hidden="true"></i>
+				<div>
+					<img src="">
+					<h6>Speciality Menu</h6>
+				</div>
+				<div>
+					<img src="">
+					<h6>Food Menu</h6>
+				</div>
+				<div>
+					<img src="">
+					<h6>Bar Menu</h6>
+				</div>
 			</span>
+
+			<!-- <span>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</span> -->
 		</div>
 	</section>
 
@@ -206,14 +196,34 @@
 
 	<section id="photos" class="outer_section">
 		<p><%= link_to "Photos",url_for(controller: 'restaurants', action: 'ankiting', which: "3"), method: :get %></p>
+		<!-- <div id="photo_images">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+		</div> -->
+
 		<div id="photo_images">
-			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
-			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
-			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
-			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
-			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
-			<img src="http://www.avatarstock.com/img/Yellow-Dog_4383.gif">
+			<div>
+				<img src="">
+				<h6>Food Photos</h6>
+			</div>
+			<div>
+				<img src="">
+				<h6>Ambience</h6>
+			</div>
+			<div>
+				<img src="">
+				<h6>Roof/Poolside</h6>
+			</div>
+			<div>
+				<img src="">
+				<h6>Exterior</h6>
+			</div>
 		</div>
+
 		<span id="one">See all 337 photos</span>
 		<span id="two"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>		
 	</section>

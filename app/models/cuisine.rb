@@ -1,6 +1,9 @@
 class Cuisine < ActiveRecord::Base
   belongs_to :restaurant
   has_one :rating
+  has_many :reviews
+
+  validates_presence_of :name, :restaurant_id
 
   def num_rates
   	return Rating.where(cuisine: self).length
@@ -13,6 +16,10 @@ class Cuisine < ActiveRecord::Base
   		total = total + (rating.num_stars*1.0)/2
   		count = count + 1
   	end	
-  	return (((total*10)/count).ceil)/10.round(1)
+    if count == 0
+      return 0.0
+    else  
+      return (((total*10)/count).ceil)/10.round(1)
+    end  
   end
 end

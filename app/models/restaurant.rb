@@ -5,6 +5,10 @@ class Restaurant < ActiveRecord::Base
   has_many :reservations
   validates_presence_of :name
 
+  # abhi wo case handle karna bacha hai jisme user logged in nahi hai
+  # i think front-end pe hi (ya view file mien hi) check kr lena chahiye aur
+  # uske according koi suitable popup ya noty-fication de deni chahiye  
+
 	def is_bookmarked user_id,restaurant
     if Bookmark.where(user: user_id, restaurant: restaurant).count > 0
       return true
@@ -20,6 +24,24 @@ class Restaurant < ActiveRecord::Base
       return "<i class=\"fa fa-bookmark-o\" aria-hidden=\"true\"></i>"
     end
   end   
+
+
+  def is_liked user_id,review
+    if Like.where(user: user_id, review: review).count > 0
+      return true
+    else
+      return false
+    end    
+  end
+
+  def like_icon user_id, review
+    if is_liked user_id, review
+      return "<i class=\"fa fa-thumbs-up\" aria-hidden=\"true\"></i>"
+    else
+      return "<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>"
+    end
+  end   
+
 
   def is_beenhere user_id, restaurant
     if BeenHere.where(user: user_id, restaurant: restaurant).count > 0
@@ -68,20 +90,48 @@ class Restaurant < ActiveRecord::Base
     end    
   end  
 
+  def review_text user_id
+    if Review.where(user: User.find_by_id(user_id)).count <= 1
+      return "Review"
+    else
+      return "Reviews"
+    end
+  end   
+
+  def followers_text user_id
+    if FollowMapping.where(followee_id: user_id).count == 1
+      return "Follower"
+    else
+      return "Followers"
+    end
+  end    
+
+  def like_text review_id
+    if Like.where(review: review_id).count == 1
+      return "Like"
+    else
+      return "Likes"
+    end
+  end    
+
   def average_rating
     total = 0
     count = 0
 
-    Cuisine.where(restaurant: self).each do |cuisine|
-      total = total + (cuisine.rating.num_stars*1.0)/2
-      count = count + 1
-    end
-    # Cuisine.where(restaurant: self).pluck(:rating).each do |cuisine_rating|
-    #   total = total + (cuisine_rating.num_stars*1.0)/2
-    #   count = count + 1
-    # end
+    if Cuisine.where(restaurant: self).length == 0
+      return 0.0
+    else  
 
-    return (((total*10)/count).ceil)/10.round(1)
+      Cuisine.where(restaurant: self).each do |cuisine|
+
+        if cuisine.rating
+          total = total + (cuisine.rating.num_stars*1.0)/2
+        end
+            
+        count = count + 1
+      end
+      return (((total*10)/count).ceil)/10.round(1)
+    end  
   end
 
   def num_ratings
