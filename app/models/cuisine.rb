@@ -5,6 +5,12 @@ class Cuisine < ActiveRecord::Base
 
   validates_presence_of :name, :restaurant_id
 
+
+  def review_feed
+    reviews = Review.where(cuisine: id)
+    Review.where(id: reviews).order(created_at: :desc)
+  end  
+
   def num_rates
   	return Rating.where(cuisine: self).length
   end	

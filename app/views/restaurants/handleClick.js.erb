@@ -1,1 +1,50 @@
 document.getElementById('outer_main').innerHTML=("<%= j(render partial: 'cuisinetemplate', locals: {cuisine: @cuisine, restaurant: @restaurant}) %>");
+
+// TODO : margin ka difference aa rha hai, wo theek krna hoga kbhi
+// var rating_header = document.getElementById('outside');
+// rating_header.style.display = "flex";
+
+ele1=document.getElementsByClassName("rateInRate");
+
+
+for(i = 0; i < 2; i++){
+	ele1[i].addEventListener("mouseover",function(){
+		this.style.backgroundColor="rgba(50, 50, 50, 0.1)";
+	});
+
+	ele1[i].addEventListener("mouseout",function(){
+		this.style.backgroundColor="white";
+	});
+}
+
+var writeReview = document.getElementById('write');
+writeReview.style.display = "none";
+
+var rateRate = document.getElementsByClassName('rateInRate');
+
+console.log(rateRate[1]);
+ 
+rateRate[1].addEventListener('click', function(){
+	if(writeReview.style.display == "none")
+		writeReview.style.display = "block";
+	else{
+		writeReview.style.display = "none";
+	}
+});
+
+var takeRating = document.getElementById('provide_rating');
+takeRating.style.display = "none";
+
+rateRate[0].addEventListener('click', function(){
+	if(takeRating.style.display == "none")
+		takeRating.style.display = "block";
+	else{
+		takeRating.style.display = "none";
+	}
+});
+
+
+
+
+
+

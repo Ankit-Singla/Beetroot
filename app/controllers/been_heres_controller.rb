@@ -1,6 +1,5 @@
 class BeenHeresController < ApplicationController
 	before_action :authenticate_user!
-	validates :restaurant_id, :presence => true
 
 	def toggle_beenhere
 		@restaurant = Restaurant.find(params[:restaurant])

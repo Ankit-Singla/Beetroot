@@ -34,9 +34,9 @@
 			<%=  link_to raw(@restaurant.bookmark_icon(current_user ? current_user.id : 1)), url_for(controller: 'bookmarks', action: 'toggle_bookmark', restaurant: @restaurant), method: :post,id: "bookmark_#{@restaurant.id}" ,remote: true %>
 			</span>
 			<span>
-			<%=  link_to raw(@restaurant.bookmark_icon(current_user ? current_user.id : 1)), url_for(controller: 'been_heres', action: 'toggle_beenhere', restaurant: @restaurant), method: :post,id: "beenhere_#{@restaurant.id}" ,remote: true %>
+			<%=  link_to raw(@restaurant.beenhere_icon(current_user ? current_user.id : 1)), url_for(controller: 'been_heres', action: 'toggle_beenhere', restaurant: @restaurant), method: :post,id: "beenhere_#{@restaurant.id}" ,remote: true %>
 			</span>
-			<span id="star">
+			<!-- <span id="star">
 				<i class="fa fa-star-o" aria-hidden="true"></i>
 				<div id="divy">
 					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
@@ -46,7 +46,7 @@
 					<p><i class="fa fa-star-o" aria-hidden="true"></i></p>
 				</div>	
 				<aside id="clear">clear</aside>
-			</span>
+			</span> -->
 			<span><i class="fa fa-check" aria-hidden="true"></i></span>
 			<span><i class="fa fa-share-alt" aria-hidden="true"></i></span>
 		</div>		
@@ -57,7 +57,7 @@
 		<main>
 			<section class="part">
 				<p>
-<%= link_to "Menu",url_for(controller: 'restaurants', action: 'ankiting', which: "1"), method: :post,  remote: true %>
+<%= link_to "Menu",url_for(controller: 'restaurants', action: 'ankiting', which: "1"), method: :post,  remote: true,id: "menu" %>
 				</p>
 				<footer>
 					<section>

@@ -5,7 +5,18 @@ class RestaurantsController < ApplicationController
   def details
     respond_to do |format|
       format.js{
+        offset = params[:offset]
+        if offset
+          offset = offset.to_i
+        else
+          offset = 0
+        end
 
+        cuis = Cuisine.where(id: params[:cuisine].to_i).first
+
+        @new_offset = 2*(offset - 1)
+        @show_load_more = offset < cuis.review_feed.count
+        @feed = cuis.review_feed.limit(offset-2).offset(offset)
       }
       format.html{
 
@@ -27,9 +38,9 @@ class RestaurantsController < ApplicationController
   # end
 
   def handleClick
+    # @review = Review.new
     @cuisine = params[:cuisine].to_i
     @restaurant = params[:restaurant_id].to_i
-
     respond_to do |format|
       format.js {}
     end 

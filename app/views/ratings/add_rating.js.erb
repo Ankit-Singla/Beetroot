@@ -1,10 +1,16 @@
 
-var parent = $('#star_container');
+var father = document.getElementById('star_container');
 var upto = <%= @count %>;
-for (var i = 0; i < parent.children.length; i++){
+for (var i = 0; i < father.children[0].children.length; i++){
 	if(i < upto){
-		parent.children[i].html("<i class=\"fa fa-star\" aria-hidden=\"true\"></i>");
+		father.children[0].children[i].innerHTML = "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>";
 	}else{
-		parent.children[i].html("<i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>");
+		father.children[0].children[i].innerHTML = "<i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>";
 	}
 }
+
+var ratingInfo = document.getElementById('rating_info');
+ratingInfo.children[1].innerHTML = "<%= Cuisine.where(id: params[:cuisine_id].to_i).first.average_rates %>/5.0";
+
+var rateRate = document.getElementsByClassName('rateInRate');
+rateRate[0].innerHTML = "<%= Restaurant.where(id: Cuisine.where(id: params[:cuisine_id].to_i).first.restaurant_id).first.rating_text(current_user.id, params[:cuisine_id].to_i) %>";

@@ -186,15 +186,21 @@ $(document).ready(function(){
 
 
 // rate different cuisines in the details of a restaurant
-// var share_experience_header = document.getElementById('outside');
+
 
 // share_experience_header.children[1].addEventListener('click', function(){
 // 	// rating wala hidden display wala div appear karwana hai aur logic lagana hai rating wala pura
 // });
-
-// share_experience_header.children[2].addEventListener('click', function(){
+// console.log("ab to write a review");
+// share_experience_header.style.display = "block";
+ // share_experience_header.children[2].addEventListener('click', function(){
+ 	// console.log("write a review");
 // 	// write a review wale part pe smooth scroll krwana hai ya write a review ka popup display krwana hai
-// });
+	// $('section#write').css({
+	// 	display: "block"
+	// });
+	// this.style.display = "block";
+ // });
 
 // share_experience_header.children[1].addEventListener('onmouseover', hover_effect_experience_header(1, event));
 // share_experience_header.children[2].addEventListener('onmouseover', hover_effect_experience_header(2, event));
@@ -214,24 +220,24 @@ $(document).ready(function(){
 // 	$($('#outside div')[i]).style.backgroundColor = "white";
 // }	
 
-console.log("times");
+// console.log("times");
 
-$('#outside').on({
-	mouseenter: function(){
-		this.style.backgroundColor = "grey";
-		console.log("here");
-	},
-	mouseleave: function(){
-		this.style.backgroundColor = "white";
-		console.log("there");
-	}	
-}, "div");
+// $('#outside').on({
+// 	mouseenter: function(){
+// 		this.style.backgroundColor = "grey";
+// 		console.log("here");
+// 	},
+// 	mouseleave: function(){
+// 		this.style.backgroundColor = "white";
+// 		console.log("there");
+// 	}	
+// }, "div");
 
-$('#outside').on('click', function(){
-	console.log('something');
-}
+// $('#outside').on('click', function(){
+// 	console.log('something');
+// }
 
-);
+// );
 
 
 
@@ -245,5 +251,17 @@ $('#outside').on('click', function(){
 // 	console.log(pos);
 // 	share_experience_header.children[pos].style.backgroundColor = "white";
 // }
+
+
+
+
+
+//newest addition
+
+// $('div#load_more span').on('click', function(){
+	
+// });
+
+
 
 });

@@ -61,7 +61,7 @@ class Restaurant < ActiveRecord::Base
 
 
   def rating_icon user_id, cuisine_id, count
-    rating = Rating.where(user_id: user_id, cuisine: cuisine_id).first
+    rating = Rating.includes(:cuisine, :user).where(user_id: user_id, cuisine: cuisine_id).first
     ratingStars = 0
     if !rating
       ratingStars = -1
@@ -70,7 +70,7 @@ class Restaurant < ActiveRecord::Base
       ratingStars = rating.num_stars
     end  
 
-    if count <= ratingStars
+    if count > ratingStars
       return "<i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>"
     else
       return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>"
@@ -84,7 +84,7 @@ class Restaurant < ActiveRecord::Base
   def rating_text user_id, cuisine_id
     rating = Rating.where(user_id: user_id, cuisine: cuisine_id).first
     if rating
-      return "Rated #{rating.num_stars/2}"
+      return "Rated #{(rating.num_stars*1.0)/2}"
     else
       return "Rate"
     end    
@@ -113,6 +113,10 @@ class Restaurant < ActiveRecord::Base
       return "Likes"
     end
   end    
+
+  def like_count review
+    "#{Like.where(user: review.user, review: review).count} #{like_text review.id}"
+  end  
 
   def average_rating
     total = 0

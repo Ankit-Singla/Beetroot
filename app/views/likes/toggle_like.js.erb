@@ -11,3 +11,5 @@ $('#like_<%= @review.id%>').html("<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"t
 noty({text: 'Unliked', type: 'alert'});
 
 <% end %>
+
+$('#comment_<%= params[:review] %>').html("<%= Restaurant.where(id: @restaurant).first.like_count @review %>");

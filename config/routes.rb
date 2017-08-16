@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   get 'restaurants/:id/details' => 'restaurants#details'
+  get 'restaurants/details' => 'restaurants#details'
   post 'restaurants/:id/ankiting' => 'restaurants#ankiting'
   get 'restaurants/:id/ankiting' => 'restaurants#ankiting'
   post 'restaurants/handleClick' => 'restaurants/handleClick'
   post 'ratings/add_rating' => 'ratings/add_rating'
-
+  post 'ratings/clear_rating' => 'ratings/clear_rating'
+  get 'restaurants/handleClick' => 'restaurants/handleClick' 
   resources :restaurants
   resources :reservations
   devise_for :users

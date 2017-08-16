@@ -3,6 +3,7 @@ class LikesController < ApplicationController
 
 	def toggle_like
 		@review = Review.find(params[:review])
+		@restaurant = params[:restaurant]
 		like = Like.where(user: current_user, review: @review).first
 		@is_liked = false
 		if like

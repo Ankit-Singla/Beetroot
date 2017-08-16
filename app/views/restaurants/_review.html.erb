@@ -1,0 +1,45 @@
+<section>
+					<div id="upper">
+						<div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFFDBzG1FWbfnpuzrM5OHbn1qlAwjpgs2SOcDgw-zCdSuVd80">
+						</div>
+						<!-- <div><img src=<%= review.user.profile_picture %>> -->
+						<!-- </div> -->
+						<div id="inner_upper">
+							<span id="one_name"><%= "#{review.user.first_name} #{review.user.last_name}" %></span>
+							<span id="two_review"><%= "#{Review.where(user: review.user).length} "%><%= Restaurant.where(id: restaurant).first.review_text review.user.id %>,  <%= "#{FollowMapping.where(followee_id: review.user.id).length} "%><%= Restaurant.where(id: restaurant).first.followers_text review.user.id %> </span>
+						</div>	
+						<span>
+						<% rate_stars = Rating.where(id: review.rating_id).first.num_stars %>
+						<% for i in 1..5 %>
+							<% if i <= rate_stars/2 %>
+								<i class="fa fa-star" aria-hidden="true"></i>
+							<% elsif i == (rate_stars+1)/2 %>
+								<i class="fa fa-star-half-o" aria-hidden="true"></i>
+							<% else %>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+							<% end %>
+						<% end %>	
+						</span>
+					</div>
+
+					<div id="lower">
+						<div class="reviews_content">
+							<%= review.content %>
+						</div>
+
+						<div class="inner_lower">
+							<div>
+								<span>
+									<%=  link_to raw(Restaurant.where(id: restaurant).first.like_icon(current_user ? current_user.id : 1, review)), url_for(controller: 'likes', action: 'toggle_like', review: review), method: :post,id: "like_#{review.id}" ,remote: true %>
+									
+								</span>
+								<span><%= Like.where(user: review.user, review: review).count %>
+									<%= Restaurant.where(id: restaurant).first.like_text review.id %>
+								</span>
+							</div>
+							
+							<span class="share"><i class="fa fa-share-square" aria-hidden="true"></i></span>
+							
+						</div>
+					</div>
+				</section>

@@ -2,49 +2,47 @@
 	<div id="star_container">
 		<!-- why haven't I done remote: true ?? -->
 		<!-- come back to this doubt later -->
+		
+		<!-- this for loop is not working and I know why, but is there any alternative for it (to make the below code DRY) -->
+		<% for i in [1..10] %>
 		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 1)), url_for(controller: "ratings", action: "add_rating", which: 1, cuisine_id: cuisine), id: cuisine, method: :post %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 1)), url_for(controller: "ratings", action: "add_rating", which: 1, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 2)), url_for(controller: "ratings", action: "add_rating", which: 2, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 3)), url_for(controller: "ratings", action: "add_rating", which: 3, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 4)), url_for(controller: "ratings", action: "add_rating", which: 4, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 5)), url_for(controller: "ratings", action: "add_rating", which: 5, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 6)), url_for(controller: "ratings", action: "add_rating", which: 6, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 7)), url_for(controller: "ratings", action: "add_rating", which: 7, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 8)), url_for(controller: "ratings", action: "add_rating", which: 8, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 9)), url_for(controller: "ratings", action: "add_rating", which: 9, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+			<%= link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 10)), url_for(controller: "ratings", action: "add_rating", which: 10, cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
 		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 2)), url_for(controller: "ratings", action: "add_rating", which: 2, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 3)), url_for(controller: "ratings", action: "add_rating", which: 3, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 4)), url_for(controller: "ratings", action: "add_rating", which: 4, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 5)), url_for(controller: "ratings", action: "add_rating", which: 5, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 6)), url_for(controller: "ratings", action: "add_rating", which: 6, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 7)), url_for(controller: "ratings", action: "add_rating", which: 7, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 8)), url_for(controller: "ratings", action: "add_rating", which: 8, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 9)), url_for(controller: "ratings", action: "add_rating", which: 9, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
-		<p>
-			<%= link_to raw(Restaurant.where(id: restaurant).first.rating_icon(current_user.id, @cuisine, 10)), url_for(controller: "ratings", action: "add_rating", which: 10, cuisine_id: cuisine), id: cuisine, method: :post %>
-		</p>
+		<% end %>
 	</div>
-	<div id="clear_rating">clear</div>
+	<div id="clear_rating">
+		<%= link_to "clear", url_for(controller: "ratings", action: "clear_rating", cuisine_id: cuisine), id: @cuisine, method: :post, remote: true %>
+	</div>
 </div>
 
 <header id="outside">
 			<span>Share Your Experience</span>
-			<div id="rateInRate">
-				<%= Restaurant.where(id: restaurant).first.rating_text(current_user.id, cuisine) %>
+			<div class="rateInRate">
+				<%= Restaurant.includes(:cuisines).where(id: restaurant).first.rating_text(current_user.id, @cuisine) %>
 			</div>
-			<div>Review</div>
+			<div class="rateInRate">Review</div>
 </header>
 
+<section id="write">
+	<p>Write a Review</p>
+		<div>
+			<!-- <form action="/reviews/new" > -->
+				<input type="text" name="review">
+				<br>
+				<button id="submit_review">Add Review</button>
+			<!-- </form> -->
+		</div>
 
+</section>
 
 <main>
 			<header id="inside">
@@ -85,6 +83,17 @@
 			</section>
 
 			<section id="reviews" class="outer_section">
+
+			<!-- <section id="write" style="display: none">
+				<p>Write a Review</p>
+				<div>
+					<input type="text" name="review">
+					<br>
+					<button id="submit_review">Add Review</button>
+				</div>
+			</section> -->
+			
+
 			<p>Reviews</p>
 
 				<% Review.where(cuisine: @cuisine).each do |review| %>
@@ -97,18 +106,20 @@
 						<!-- </div> -->
 						<div id="inner_upper">
 							<span id="one_name"><%= "#{review.user.first_name} #{review.user.last_name}" %></span>
-							<span id="two_review"><%= "#{Review.where(user: review.user).length} "%><%= Restaurant.where(id: restaurant).first.review_text review.user.id %>,  <%= "#{FollowMapping.where(followee_id: review.user.id).length} "%><%= Restaurant.where(id: restaurant).first.followers_text review.user.id %> </span>
+							<span id="two_review"><%= "#{Review.where(user: review.user).length} "%><%= Restaurant.includes(:cuisines).where(id: restaurant).first.review_text review.user.id %>,  <%= "#{FollowMapping.where(followee_id: review.user.id).length} "%><%= Restaurant.includes(:cuisines).where(id: restaurant).first.followers_text review.user.id %> </span>
 						</div>	
 						<span>
-						<% rate_stars = Rating.where(id: review.rating_id).first.num_stars %>
-						<% for i in 1..5 %>
-							<% if i <= rate_stars/2 %>
-								<i class="fa fa-star" aria-hidden="true"></i>
-							<% elsif i == (rate_stars+1)/2 %>
-								<i class="fa fa-star-half-o" aria-hidden="true"></i>
-							<% else %>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-							<% end %>
+						<% if Rating.where(id: review.rating_id).length > 0 %>
+							<% rate_stars = Rating.where(id: review.rating_id).first.num_stars %>
+							<% for i in 1..5 %>
+								<% if i <= rate_stars/2 %>
+									<i class="fa fa-star" aria-hidden="true"></i>
+								<% elsif i == (rate_stars+1)/2 %>
+									<i class="fa fa-star-half-o" aria-hidden="true"></i>
+								<% else %>
+									<i class="fa fa-star-o" aria-hidden="true"></i>
+								<% end %>
+							<% end %>	
 						<% end %>	
 						</span>
 					</div>
@@ -121,11 +132,10 @@
 						<div class="inner_lower">
 							<div>
 								<span>
-									<%=  link_to raw(Restaurant.where(id: restaurant).first.like_icon(current_user ? current_user.id : 1, review)), url_for(controller: 'likes', action: 'toggle_like', review: review), method: :post,id: "like_#{review.id}" ,remote: true %>
-									
+									<%=  link_to raw(Restaurant.includes(:cuisines).where(id: restaurant).first.like_icon(current_user ? current_user.id : 1, review)), url_for(controller: 'likes', action: 'toggle_like', review: review, restaurant: @restaurant), method: :post,id: "like_#{review.id}" ,comment_id: review.id,remote: true %>
 								</span>
-								<span><%= Like.where(user: review.user, review: review).count %>
-									<%= Restaurant.where(id: restaurant).first.like_text review.id %>
+								<span id="comment_<%= review.id %>">
+									<%= Restaurant.includes(:cuisines).where(id: restaurant).first.like_count review %>
 								</span>
 							</div>
 							
@@ -139,9 +149,9 @@
 
 				
 				 <div id="load_more">
-				 <%= link_to "Load More", url_for(controller: 'restaurants', action: 'load_more', offset: 4), remote: true %>
-					<!-- <span>Load More</span>
- -->					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+				  	<%=  link_to "Load More", url_for(controller: 'restaurants', action: 'details', offset: 4, id: restaurant, cuisine: cuisine), remote: true %>
+					<span>Load More</span>
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 				</div>	
 			</section>
 
